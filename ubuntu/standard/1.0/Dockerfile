@@ -14,9 +14,6 @@ FROM ubuntu:18.04
 ENV RUBY_MAJOR="2.6" \
  PYTHON_VERSION="3.7.2" \
  PHP_VERSION=7.3.1 \ 
- NODE_VERSION="10.15.0" \
- NODE_8_VERSION="8.11.0" \
- NVM_VERSION="0.33.5" \
  GOLANG_VERSION="1.11.4" \
  DOTNET_SDK_VERSION="2.2.102" \
  DOCKER_VERSION="18.09.1" \
@@ -331,16 +328,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  
 #****************      NODEJS     ****************************************************
 
- ENV N_SRC_DIR="$SRC_DIR/n"
+#  ENV N_SRC_DIR="$SRC_DIR/n"
 
- RUN git clone https://github.com/tj/n $N_SRC_DIR \
-     && cd $N_SRC_DIR && make install \
-     && n $NODE_8_VERSION && npm install --save-dev -g grunt && npm install --save-dev -g grunt-cli && npm install --save-dev -g webpack \
-     && n $NODE_VERSION && npm install --save-dev -g grunt && npm install --save-dev -g grunt-cli && npm install --save-dev -g webpack \
-     && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-     && apt-get update && apt-get install -y --no-install-recommends yarn \
-     && cd / && rm -rf $N_SRC_DIR; 
+#  RUN git clone https://github.com/tj/n $N_SRC_DIR \
+#      && cd $N_SRC_DIR && make install \
+#      && n $NODE_8_VERSION && npm install --save-dev -g grunt && npm install --save-dev -g grunt-cli && npm install --save-dev -g webpack \
+#      && n $NODE_VERSION && npm install --save-dev -g grunt && npm install --save-dev -g grunt-cli && npm install --save-dev -g webpack \
+#      && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+#      && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+#      && apt-get update && apt-get install -y --no-install-recommends yarn \
+#      && cd / && rm -rf $N_SRC_DIR; 
 
 #****************      END NODEJS     ****************************************************
 
